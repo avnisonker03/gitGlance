@@ -32,7 +32,7 @@ export default function Navbar(){
           </a>
           {/* <ModeToggle /> */}
           <ThemeBtn/>
-          <a
+{/*           <a
           href="https://www.producthunt.com/posts/git-re?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-git&#0045;re"
           target="_blank"
           >
@@ -43,7 +43,7 @@ export default function Navbar(){
             width="250"
             height="54"
           />
-        </a>
+        </a> */}
       </div>
 
           </header>
