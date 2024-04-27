@@ -37,7 +37,7 @@ const FetchUserData = ({ username }) => {
             {userData && <Resume userdata={userData} />}
             {userData && <ContributionGraph username={userName}/>}
             </div>
-            <DownloadButton fileName="resume"/>
+          
         </>
     );
 };
