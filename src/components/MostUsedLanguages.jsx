@@ -10,7 +10,7 @@ const MostUsedLanguages = ({ userdata }) => {
                 const repos = await response.json();
                 console.log('repos:', repos);
                 const totalStars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
-                setStars(stars);
+                setStars(totalStars);
                 console.log(totalStars);
                 const promises = repos.map(repo => fetch(repo.languages_url).then(response => response.json()));
                 const languagesDataArray = await Promise.all(promises);
