@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 
 const MostUsedLanguages = ({ userdata }) => {
     const [languagesData, setLanguagesData] = useState([]);
-
+    const [stars,setStars]=useState(0);
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch(userdata.repos_url);
                 const repos = await response.json();
                 console.log('repos:', repos);
+                const totalStars = repos.reduce((acc, repo) => acc + repo.stargazers_count, 0);
+                setStars(stars);
                 const promises = repos.map(repo => fetch(repo.languages_url).then(response => response.json()));
                 const languagesDataArray = await Promise.all(promises);
 
@@ -77,7 +79,7 @@ const MostUsedLanguages = ({ userdata }) => {
                             Public Repositories:&nbsp;&nbsp;{userdata.public_repos}
                         </li>
                         <li className="flex items-center text-lg space-x-1 text-white">
-                            <span className="mr-2">Stars Received:&nbsp;&nbsp;{0}</span>
+                            <span className="mr-2">Stars Received:&nbsp;&nbsp;{stars}</span>
                         </li>
                     </ul>
                 </div>
